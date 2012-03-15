@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<script>
+		var ext = window.opera.extension,
+			kippt = {},
+			tabs = {},
+			button;
+		window.addEventListener("load", function(){
+				ToolbarUIItemProperties = {
+				title: "Kippt It",
+				icon: "kippt.png",
+				popup: {
+					href: "https://kippt.com/extensions/new/?url=";
+					width: 400,
+					height: 245
+				}
+			}
+			var tab = ext.tabs.getFocused();
+			kippt.url = tab ? tab.url : "https://kippt.com/extensions/new/?url=";				
+			button = opera.contexts.toolbar.createItem(ToolbarUIItemProperties);
+			opera.contexts.toolbar.addItem(button);			
+			opera.extension.tabs.onfocus = function () {
+				var tab = ext.tabs.getFocused(),
+					url = tab ? tab.url : "https://kippt.com/extensions/new/?url=";
+				kippt = tabs[url] || kippt;
+				setPopup();
+			};
+			setPopup();
+			ext.broadcastMessage("getinfo");
+		}, false);
+		ext.onconnect = function (ev) {
+			ev.source.postMessage("getinfo");
+		};
+		ext.onmessage = function(event) {
+			var tab = ext.tabs.getFocused(),
+				url = tab ? tab.url : "https://kippt.com/extensions/new/?url=";
+			tabs[url] = event.data;	
+			if(event.data.url == url) {
+				kippt = event.data;
+				setPopup();
+			}
+		};
+		function setPopup() {
+			button.popup.href = 'https://kippt.com/extensions/new/?url='+encodeURIComponent(kippt.url)+'&title='+encodeURIComponent(kippt.title);		
+		};
+	</script>
+	</head>
+	<body>
+	</body>
+</html>

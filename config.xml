@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget xmlns="http://www.w3.org/ns/widgets" id="http://www.kippt.com" version="0.1">
+	<name>Kippt It</name>
+	<description>Sends bookmark to Kippt, based on "Kippt It!" bookmarklet</description>
+  	<author href="http://armen138.tumblr.com" email="armen@nieuwenhuizen.ca">Armen138</author>
+  	<icon src="kippt_big.png"/>
+	<access origin="*" />
+</widget>
