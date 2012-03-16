@@ -11,18 +11,18 @@
 				title: "Kippt It",
 				icon: "kippt.png",
 				popup: {
-					href: "https://kippt.com/extensions/new/?url=",
+					href: "",
 					width: 400,
 					height: 245
 				}
 			}
 			var tab = ext.tabs.getFocused();
-			kippt.url = tab ? tab.url : "https://kippt.com/extensions/new/?url=";				
+			kippt.url = tab ? tab.url : "";				
 			button = opera.contexts.toolbar.createItem(ToolbarUIItemProperties);
 			opera.contexts.toolbar.addItem(button);			
 			opera.extension.tabs.onfocus = function () {
 				var tab = ext.tabs.getFocused(),
-					url = tab ? tab.url : "https://kippt.com/extensions/new/?url=";
+					url = tab ? tab.url : "";
 				kippt = tabs[url] || kippt;
 				setPopup();
 			};
@@ -34,7 +34,7 @@
 		};
 		ext.onmessage = function(event) {
 			var tab = ext.tabs.getFocused(),
-				url = tab ? tab.url : "https://kippt.com/extensions/new/?url=";
+				url = tab ? tab.url : "";
 			tabs[url] = event.data;	
 			if(event.data.url == url) {
 				kippt = event.data;
