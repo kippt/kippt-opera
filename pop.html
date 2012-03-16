@@ -11,7 +11,8 @@
 				var iframe = document.getElementById("kipptit");
 				url = event.data.url;
 				title = event.data.title;
-				iframe.src = 'https://kippt.com/extensions/new/?url='+encodeURIComponent(url)+'&title='+encodeURIComponent(title);
+				notes = event.data.notes || "";
+				iframe.src = 'https://kippt.com/extensions/new/?url='+encodeURIComponent(url)+'&title='+encodeURIComponent(title) + '&source=bp1&notes=' + encodeURIComponent(notes);
 			};
 		</script>
 	</head>
