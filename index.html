@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<script>
+		var ext = window.opera.extension,
+			kippt = {},
+			tabs = {},
+			popup = null,
+			button;
+		window.addEventListener("load", function(){
+				ToolbarUIItemProperties = {
+				title: "Kippt It",
+				icon: "kippt.png",
+				popup: {
+					href: "pop.html",
+					width: 400,
+					height: 245
+				}
+			}			
+			button = opera.contexts.toolbar.createItem(ToolbarUIItemProperties);
+			opera.contexts.toolbar.addItem(button);			
+		}, false);
+		ext.onmessage = function(event) {
+			var tab = ext.tabs.getFocused(),
+				url = tab ? tab.url : "";
+			if(event.data === "getme") {
+				popup = event.source;
+				if(tab) {
+					tab.postMessage("getinfo");
+				} else {
+					popup.postMessage({url: "", title: ""});
+				}
+			} else {
+				popup.postMessage(event.data);
+			}
+		};
+	</script>
+	</head>
+	<body>
+	</body>
+</html>
