@@ -4,5 +4,7 @@
 	<description>Sends bookmark to Kippt, based on "Kippt It!" bookmarklet</description>
   	<author href="http://armen138.tumblr.com" email="armen@nieuwenhuizen.ca">Armen138</author>
   	<icon src="kippt_big.png"/>
+  	<feature name="opera:share-cookies" required="false"/>
+  	<access origin="https://kippt.com" subdomains="true"/>
 	<access origin="*" />
 </widget>
