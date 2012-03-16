@@ -1,17 +1,12 @@
 # kippt-opera
 
-To install the extension in Opera, drag the "kippt-opera.oex" file to your browser.
+This is Kippt.com's official Firefox add-on. It's licensed under MIT and we'll accept improvements in pull-requests.
 
-To build the extension, add the following files to a ZIP file:
+Originally created by @armen138
 
-config.xml
-index.html
-pop.html
-kippt.png
-kippt_big.png
-includes/getinfo.js
+## Building extension
 
-Then change the extension of the file to .oex
+To build the extension, add the files to .zip and thne change the extension of the file to .oex
 
 NB. The extension will only play nice with pages that were loaded after the extension was activated.
 To be sure all works as it should, restart Opera after installing.

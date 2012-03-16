@@ -8,16 +8,16 @@
 				opera.extension.postMessage('getme');
 			}, false);
 			opera.extension.onmessage = function(event) {
-				var iframe = document.getElementById("kipptit");
+				var iframe = document.getElementById("kippt");
 				url = event.data.url;
 				title = event.data.title;
 				notes = event.data.notes || "";
-				iframe.src = 'https://kippt.com/extensions/new/?url='+encodeURIComponent(url)+'&title='+encodeURIComponent(title) + '&source=bp1&notes=' + encodeURIComponent(notes);
+				iframe.src = 'https://kippt.com/extensions/new/?url='+encodeURIComponent(url)+'&title='+encodeURIComponent(title) + '&source=opera&notes=' + encodeURIComponent(notes);
 			};
 		</script>
 	</head>
 	<body style='overflow: hidden; margin: 0; padding: 0;' >
-		<iframe id="kipptit" style='width: 100%; height: 100%; position: absolute; top: 0px; left: 0px; border: none;' >
+		<iframe id="kippt" style='width: 100%; height: 100%; position: absolute; top: 0px; left: 0px; border: none;' >
 		</iframe>
 	</body>
 </html>
