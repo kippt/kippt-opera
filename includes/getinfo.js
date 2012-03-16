@@ -11,7 +11,3 @@ opera.extension.onmessage = function(event) {
 		event.source.postMessage(kippt);
 	}
 };
-
-var parent = {
-	window: window
-}
