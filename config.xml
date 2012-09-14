@@ -3,7 +3,7 @@
 	<name>Kippt</name>
 	<description>Kippt's Opera add-on - http://kippt.com</description>
   	<author href="http://kippt.com.com" email="hello@kippt.com">Kippt</author>
-  	<icon src="kippt_icon.png"/>
+  	<icon src="kippt.png"/>
   	<feature name="opera:share-cookies" required="false"/>
   	<access origin="https://kippt.com" subdomains="true"/>
 	<access origin="*" />
